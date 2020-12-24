@@ -1,0 +1,5 @@
+package com.cg.jeevanonlineterminsurance.entity;
+
+public class Policy {
+
+}

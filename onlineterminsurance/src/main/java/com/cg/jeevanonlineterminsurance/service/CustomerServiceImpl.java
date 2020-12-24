@@ -1,0 +1,75 @@
+package com.cg.jeevanonlineterminsurance.service;
+/*
+ * @author - Shahanaz
+ */
+import java.util.List;
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cg.jeevanonlineterminsurance.entity.Customer;
+import com.cg.jeevanonlineterminsurance.exception.ResourceNotFoundException;
+import com.cg.jeevanonlineterminsurance.repository.CustomerDaoImpl;
+
+@Service
+@Transactional
+public class CustomerServiceImpl implements CustomerService {
+	@Autowired
+	private CustomerDaoImpl customer;
+    // get all customers
+	public List<Customer> getAllCustomers() {
+		return customer.findAll();
+	}
+    // get customer based on customerId
+	public Customer findCustomerById(@PathVariable(value = "id") Integer customerId) throws ResourceNotFoundException {
+
+		Customer u = customer.findByCustomerId(customerId);
+		if (u == null) {
+			new ResourceNotFoundException("Customer not found for this id :: " + customerId);
+		}
+		return u;
+	}
+
+	/*
+	 * public List<customer> findByCustomerIdAndPolicyId(int customerId,int
+	 * policyId) { return (List<customerPolicy>)
+	 * customer.findByCustomerIdAndPolicyId(customerId, policyId); }
+	 */
+	
+	// delete a customer based on customerId
+	public boolean deleteCustomerById(Integer customerId) throws ResourceNotFoundException {
+		Customer u = customer.findById(customerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
+		customer.delete(u);
+		if (u == null) {
+			return true;
+		}
+		return false;
+	}
+    // add a customer
+	public Customer saveCustomer(Customer u) {
+
+		return customer.save(u);
+	}
+    //update customer details based on customerId
+	public Customer updateCustomer(Integer customerId, Customer u) throws ResourceNotFoundException {
+		Customer u1 = customer.findById(customerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Customer  not found for this id :: " + customerId));
+		u1.setCustomerId(u.getCustomerId());
+		u1.setPolicyId(u.getPolicyId());
+		u1.setCustomerName(u.getCustomerName());
+		u1.setEmail(u.getEmail());
+		u1.setMobileNo(u.getMobileNo());
+		u1.setAge(u.getAge());
+		u1.setDob(u.getDob());
+		final Customer updatedCustomer = customer.save(u1);
+		return updatedCustomer;
+	}
+
+	public List<Customer> saveAll() {
+
+		return null;
+	}
+}

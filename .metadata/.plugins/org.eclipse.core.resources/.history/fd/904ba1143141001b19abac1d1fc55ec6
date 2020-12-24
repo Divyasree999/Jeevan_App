@@ -1,0 +1,12 @@
+package com.cg.jeevanonlineterminsurance;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class OnlineterminsuranceApplicationTests {
+	@Test
+	void contextLoads() {
+	}
+
+}

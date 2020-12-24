@@ -1,0 +1,4 @@
+package com.cg.jeevanonlineterminsurance.control;
+
+public class AdminController {
+}

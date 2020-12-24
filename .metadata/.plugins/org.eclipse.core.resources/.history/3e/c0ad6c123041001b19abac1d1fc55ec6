@@ -1,0 +1,5 @@
+package com.cg.terminsurancecustomer.repository;
+
+public class PaymentDaoImplTest {
+
+}

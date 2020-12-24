@@ -1,0 +1,130 @@
+package com.cg.jeevanonlineterminsurance.entity;
+/**
+/*
+* Implementation Of entity table
+* @author - Poorani
+*/
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "admin")
+public class Admin {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
+	private int adminPolicyId;
+
+	private int adminId;
+
+	private int policyId;
+
+	private String adminName;
+
+	private String email;
+
+	private String mobileNo;
+
+	private int age;
+
+	private String dob;
+
+	public Admin() {
+		super();
+	}
+
+	public Admin(int adminId, int policyId, String adminName, String email, String mobileNo, int age,
+			String dob) {
+		super();
+		// this.adminPolicyId = adminPolicyId;
+		this.adminId = adminId;
+		this.policyId = policyId;
+		this.adminName = adminName;
+		this.email = email;
+		this.mobileNo = mobileNo;
+		this.age = age;
+		this.dob = dob;
+	}
+
+	// @Column(name = "admin_policy_id", nullable = false)
+	public int getAdminPolicyId() {
+		return adminPolicyId;
+	}
+
+	public void setAdminPolicyId(int adminPolicyId) {
+		this.adminPolicyId = adminPolicyId;
+	}
+
+	// @Column(name = "admin_id", nullable = false)
+	public int getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
+	// @Column(name = "policy_id", nullable = false)
+	public int getPolicyId() {
+		return policyId;
+	}
+
+	public void setPolicyId(int policyId) {
+		this.policyId = policyId;
+	}
+
+	// @Column(name = "admin_name", nullable = false)
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
+
+	// @Column(name = "email", nullable = false)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	// @Column(name = "mobile_No", nullable = false)
+	public String getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	// @Column(name = "age", nullable = false)
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	// @Column(name = "dob", nullable = false)
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [adminPolicyId=" + adminPolicyId + ", adminId=" + adminId + ", policyId="
+				+ policyId + ", adminName=" + adminName + ", email=" + email + ", mobileNo=" + mobileNo + ", age="
+				+ age + ", dob=" + dob + "]";
+	}
+}

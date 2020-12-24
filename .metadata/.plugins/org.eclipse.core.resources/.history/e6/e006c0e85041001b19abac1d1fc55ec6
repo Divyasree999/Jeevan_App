@@ -1,0 +1,5 @@
+package com.cg.jeevanonlineterminsurance.repository;
+
+public class AdminDaoImplTest {
+
+}
