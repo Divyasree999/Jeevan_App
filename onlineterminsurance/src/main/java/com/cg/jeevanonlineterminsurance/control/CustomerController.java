@@ -1,7 +1,7 @@
 package com.cg.jeevanonlineterminsurance.control;
 /*
  * Implementation Of controller layer
- * @author - Shahanaz
+ * @author - Divya Sree
  */
 import java.util.List;
 
